@@ -1,3 +1,19 @@
+$(document).ready(function(){
+
+    for(var i in cart)
+    {
+        cart[i]==2;
+
+    if (cart[i]!= 0) {
+      $(".fas fa-cart-plus").append("<div class=\"basketitems\">" +cart[i].count+ + "</div>")
+    }
+
+    }
+  });
+
+
+
+
     var cart =[];
 
     var Orders =function (orderId,name,price,TableId,OrderStatus,count){
@@ -10,6 +26,29 @@
 
     };
     
+    //Dispaly Cart
+    $(".show-cart-list").click(function(event){
+    
+        event.preventDefault();     
+    
+         displatCart()
+    
+        });
+
+    // remover order from cart
+
+    $(".remove-order").click(function(event){
+    
+        event.preventDefault();
+      
+        var orderId = Number($(this).attr("data-orderId"));
+
+         removeOrderFromCart(orderId)
+         displatCart()
+    
+        });
+
+        // add order to the cart
     $(".add-to-cart").click(function(event){
     
     event.preventDefault();
@@ -22,18 +61,33 @@
      
      
 
-     addOderToCart(orderId, name,price,TableId, 0,1);
-     displatCart();
+     addOderToCart(orderId, name,price,TableId, 0,1)
+  
+     displatCart()
 
     });
 
     function displatCart()
     { 
-        var cartArray=listCart();
+       // var cartArray=listCart();
         var output ="";
-        for(var i in cartArray)
-        { 
-            output +="<li>"+cartArray[i].name+" "+ cartArray[i].count+"</li>"
+        for(var i in cart)
+        {  
+            output +="<tr>";
+            output +="<td>"+cart[i].name+"</td>" ;
+            output +="<td>"+'$'+cart[i].price+"</td>" ;
+            output +="<td>"+ cart[i].count+"</td>" ;
+            output +="<tr>";
+            
+        //  output +="<td><a href=""><i class="'fas fa-minus'"></i></a></td>"
+           
+          
+
+        //    if (cart[i].count != 0) {
+        //    $(".fas fa-cart-plus").append("<div class=\"basketitems\">" +cart[i].count+ "</div>")
+ 
+        //   }
+
 
         }
         $("#show-cart").html(output);
@@ -53,6 +107,7 @@
         }
 
         var order = new Orders(orderId,name,price,TableId,OrderStatus,count);
+        // console.log(order);
         cart.push(order);
         SaveCart();
     }
@@ -151,7 +206,16 @@
     {        
         cart =  JSON.parse(localStorage.getItem("OrderList",JSON.stringify(cart)));
     }
-    LoadCart();
+
+    if (localStorage.length != 0 )
+    {
+        LoadCart();
+    } 
+    
+
+
+  console.log(listCart());
+   // removeOrderFromCart(1)
   
     // addOderToCart(1,"name",2,8,0,1)
     // console.log(cart);

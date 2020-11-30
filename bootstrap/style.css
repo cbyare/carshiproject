@@ -132,6 +132,11 @@ ul
     -o-transition: all 0.4s ease-in-out ;
     transition: all 0.4s ease-in-out
 }
+.accordion .link:hover {
+    cursor: pointer; 
+    color: #e68282;
+
+}
 
 .accordion li:last-child .link {
     border-bottom: 0
@@ -202,3 +207,56 @@ ul
     color: #e68282;
  }
 
+ .submenu tbody tr a .fas:hover{
+    color: #FFF;
+ }
+.div-cart
+{
+    margin: 20px auto;
+}
+.div-cart a
+{
+  color: #e68282;
+  text-decoration: none;
+}
+.basketitems {
+    color:#fff;
+    font-size:80%;
+    background-color:#e68282;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-90%);
+    -moz-transform:translate(-50%,-90%);
+    transform:translate(-50%,-90%);
+    padding:0 12%;
+    border-radius:1000px;
+  }
+  .btn_make_order
+{
+    border: 1px solid #e68282 !important;
+    background: transparent !important;
+    color: #e68282 !important;
+    transition: 0.5s;
+     padding:  6px;
+    border-radius: 5px;
+}
+
+.btn_make_order:hover{
+    background: #e68282 !important;
+    color: #fff !important;
+}
+.btn_reset_order
+{
+    border: 1px solid #4b4a5e !important;
+    background: transparent !important;
+    color: #383838 !important;
+    transition: 0.5s;
+     padding:  6px;
+    border-radius: 5px;
+}
+
+.btn_reset_order:hover{
+    background: #383838 !important;
+    color: #fff !important;
+}
